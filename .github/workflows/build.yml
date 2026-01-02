@@ -23,11 +23,21 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
     
+    - name: Accept Android Licenses
+      run: |
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+    
+    - name: Download Gradle Wrapper JAR if missing
+      run: |
+        if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
+          curl -L -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.2.0/gradle/wrapper/gradle-wrapper.jar
+        fi
+    
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     
     - name: Build APK
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --stacktrace --info
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
