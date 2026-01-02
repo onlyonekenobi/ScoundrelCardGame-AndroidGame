@@ -224,9 +224,7 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
         }
         
         // Right panel - Game area  
-        Surface(modifier = Modifier
-            .weight(1f)
-            .fillMaxHeight()) {
+        Surface(modifier = Modifier.weight(1f)) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -501,9 +499,7 @@ fun RulesSection() {
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Column(
-            modifier = Modifier
-                .padding(12.dp)
-                .verticalScroll(rememberScrollState())
+            modifier = Modifier.padding(12.dp)
         ) {
             Text("Rules & Card Types", fontWeight = FontWeight.Bold, fontSize = 14.sp)
             Spacer(modifier = Modifier.height(8.dp))
