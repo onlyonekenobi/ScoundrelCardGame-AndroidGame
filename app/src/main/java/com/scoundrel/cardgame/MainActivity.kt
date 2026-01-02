@@ -93,8 +93,7 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
     
     Row(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
+            .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
     ) {
@@ -224,8 +223,8 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
             }
         }
         
-        // Right panel - Game area
-        Box(modifier = Modifier.weight(1f)) {
+        // Right panel - Game area  
+        Surface(modifier = Modifier.weight(1f)) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
