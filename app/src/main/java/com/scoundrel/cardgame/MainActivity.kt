@@ -93,7 +93,8 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
     
     Row(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
+            .fillMaxHeight()
             .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
     ) {
@@ -227,7 +228,7 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
         Box(modifier = Modifier.weight(1f)) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
