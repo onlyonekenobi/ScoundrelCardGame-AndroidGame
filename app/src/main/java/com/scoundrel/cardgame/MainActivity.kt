@@ -224,7 +224,9 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
         }
         
         // Right panel - Game area  
-        Surface(modifier = Modifier.weight(1f)) {
+        Surface(modifier = Modifier
+            .weight(1f)
+            .fillMaxHeight()) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
