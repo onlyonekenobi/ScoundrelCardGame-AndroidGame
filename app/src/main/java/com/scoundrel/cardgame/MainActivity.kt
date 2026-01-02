@@ -3,6 +3,7 @@ package com.scoundrel.cardgame
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.scoundrel.cardgame.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -407,28 +408,45 @@ fun DeckVisualization(deckSize: Int) {
         modifier = Modifier
             .size(80.dp, 120.dp)
             .clip(RoundedCornerShape(8.dp))
-            .background(Color(0xFF1a4d7a))
-            .border(2.dp, Color.White, RoundedCornerShape(8.dp))
     ) {
         if (deckSize == 0) {
-            Text(
-                "Empty",
-                modifier = Modifier.align(Alignment.Center),
-                color = Color.Gray,
-                fontSize = 12.sp
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(Color(0xFF1a4d7a))
+                    .border(2.dp, Color.White, RoundedCornerShape(8.dp))
+            ) {
+                Text(
+                    "Empty",
+                    modifier = Modifier.align(Alignment.Center),
+                    color = Color.Gray,
+                    fontSize = 12.sp
+                )
+            }
         } else {
-            // Draw stacked cards effect
+            // Draw stacked cards effect using card back image
+            val cardBackPainter = painterResource(id = R.drawable.card_back)
+            
+            // Calculate maximum offset needed for the stack (in dp)
+            val maxOffsetDp = (layers - 1) * 2
+            
+            // Center the stack (canvas is 80x120 dp, card is 60x100 dp)
+            val baseX = (80 - 60 - maxOffsetDp) / 2
+            val baseY = (120 - 100 - maxOffsetDp) / 2
+            
             (0 until layers).forEach { i ->
-                Box(
+                val offsetX = i * 2
+                val offsetY = i * 2
+                
+                Image(
+                    painter = cardBackPainter,
+                    contentDescription = "Card back",
                     modifier = Modifier
-                        .offset(x = (i * 2).dp, y = (i * 2).dp)
+                        .offset(x = (baseX + offsetX).dp, y = (baseY + offsetY).dp)
                         .size(60.dp, 100.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .background(
-                            if (i == layers - 1) Color(0xFF1a4d7a) else Color(200 - i * 15, 200 - i * 15, 200 - i * 15)
-                        )
-                        .border(1.dp, Color.White, RoundedCornerShape(4.dp))
+                        .clip(RoundedCornerShape(4.dp)),
+                    contentScale = ContentScale.FillBounds
                 )
             }
         }
