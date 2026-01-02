@@ -224,12 +224,13 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
         }
         
         // Right panel - Game area
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
+        Box(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
             Text(
                 "Room",
                 fontSize = 20.sp,
@@ -323,6 +324,7 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
             
             // Rules section
             RulesSection()
+            }
         }
     }
 }
