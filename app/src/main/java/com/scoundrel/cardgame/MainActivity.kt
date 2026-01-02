@@ -227,7 +227,6 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
