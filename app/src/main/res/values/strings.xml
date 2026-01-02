@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scoundrel</string>
+    <string name="new_game">New Game</string>
+    <string name="undo">Undo</string>
+    <string name="enable_undo">Enable Undo</string>
+    <string name="health">Health</string>
+    <string name="equipped_weapon">Equipped Weapon</string>
+    <string name="deck">Deck</string>
+    <string name="discard_pile">Discard Pile</string>
+    <string name="room">Room</string>
+    <string name="avoid_room">Avoid Room</string>
+    <string name="resolve_selected">Resolve Selected Cards</string>
+    <string name="victory">Victory!</string>
+    <string name="defeat">Defeat</string>
+    <string name="final_score">Final Score: %1$d</string>
+    <string name="your_rank">Your Rank: %1$s</string>
+    <string name="ranking_scale">Ranking Scale:</string>
+</resources>
+
