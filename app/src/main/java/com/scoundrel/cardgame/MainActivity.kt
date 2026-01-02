@@ -156,7 +156,7 @@ fun GamePlayScreen(game: ScoundrelGame, onStateChange: () -> Unit) {
                         fontWeight = FontWeight.Bold
                     )
                     LinearProgressIndicator(
-                        progress = { game.health.toFloat() / game.maxHealth },
+                        progress = game.health.toFloat() / game.maxHealth,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(8.dp)
